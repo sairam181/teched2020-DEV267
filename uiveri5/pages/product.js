@@ -19,7 +19,20 @@ module.exports = createPageObjects({
         }));
         expect(header.asControl().getProperty('title').toBe('Flat Watch HD32'));
     },
-    
+    theProductCouldBeOrdered: function () {
+      var button = element(by.control({
+          controlType: "sap.m.Button",
+          viewId: "container-cart---product",
+          i18NText: {
+              propertyName: "text",
+              key: "addToCartShort"
+          },
+          interaction: {
+              idSuffix: "BDI-content"
+          }
+      }));
+      expect(button.isDisplayed()).toBeTruthy();
+  }
     }
   }
 });
